@@ -1,0 +1,13 @@
+
+  
+  .links{
+    display: flex;
+    list-style-type: none;
+  }
+  .link{
+    margin: 0 6px;
+  }
+    
+  a{
+      color: burlywood;
+  }
