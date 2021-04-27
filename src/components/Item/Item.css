@@ -5,7 +5,7 @@
     position: relative;
     margin: 8px;
     background-color: burlywood;
-    padding: 7px
+    padding: 7px;
 }
 .item ul{
     margin: 0;
@@ -16,5 +16,6 @@
     position: absolute;
     bottom:0;
     right:0;
-    color:grey
+    color:grey;
+    display: none;
 }

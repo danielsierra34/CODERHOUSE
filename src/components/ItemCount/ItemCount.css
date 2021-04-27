@@ -1,0 +1,24 @@
+.boton{
+    width: 20px;
+    height: 20px;
+    background-color: cadetblue;
+    color:crimson;
+    text-align: center;
+    display: inline-block;
+    margin: 1px;
+}
+.field{
+    height: 20px;
+    width:50px;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.ItemCount{ 
+    margin:auto;
+    text-align: center;
+    position:absolute;
+    bottom: 2px;
+    width: 100%;
+}

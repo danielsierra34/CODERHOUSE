@@ -1,7 +1,7 @@
-import './ItemList.css';
+import './ItemListContainer.css';
 import { Item } from '../Item/Item'
 
-export const ItemList = (props) => {
+export const ItemListContainer = (props) => {
     
     return (
         
@@ -11,6 +11,7 @@ export const ItemList = (props) => {
                 item={xxx.item}
                 price={xxx.price}
                 brand={xxx.brand}
+                inventory={xxx.inventory}
             />
         
         )
