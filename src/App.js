@@ -6,7 +6,7 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 function App() {  
   const items=[
     {
-        item:"Lavadora",
+        item:"Lavadoras",
         price:5000,
         brand:"Samsung",
         inventory:4
@@ -52,7 +52,7 @@ function App() {
       <Header/>
       <NavBar/>
       <div className="ItemList">
-      <ItemListContainer products={items}/>
+      <ItemListContainer items={items}/>
       </div>
        
     </div>
