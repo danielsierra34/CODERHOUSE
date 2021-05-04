@@ -1,19 +1,43 @@
 import './Item.css';
 import { ItemCount } from '../ItemCount/ItemCount'
+import { useState, useEffect } from 'react'
 export const Item = (props) => {
-    const handleProduct = () => 
-    alert(`Hola soy una ${props.item} de la marca ${props.brand} y mi precio es de  ${props.price}`)
+    
+    const [idP,setIdP]=useState([])
+    const [detail,setDetail]= useState([])
+    const [textoDetalle,setTextoDetalle]= useState([])
+
+
+    const handleClick = async ()=>{ 
+        setDetail([])
+        setIdP(props.id)
+        if(idP!=""){
+            let llamarDetalle = async () => {
+                const xx =await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idP}`)
+                const yy=xx.json()               
+                return yy
+            } 
+            const p= await llamarDetalle() 
+            props.bajarDetalle(p.drinks[0])
+        }        
+    }
+
 
     return(
-    <div className="item" onClick={handleProduct}>
-        <ul>
-            <li><b>Item:</b>{props.item}</li>
-            <li><b>Brand:</b>{props.brand}</li>
-            <li><b>Price:</b>{props.price}</li>
-            <li><b>Available:</b>{props.inventory}</li>
+    <div className="item">
+        <h3>{props.drink}</h3>
+        <div className="drinkImg"><img src={props.image}/></div>
+        <hr/>
+        <ul>             
+            <li><b>ID:</b>{props.id}</li>
+            <li><b>Category:</b>{props.category}</li>
+            <li><b>Glass:</b>{props.glass}</li>
         </ul>
-        <p className="clickMe">click me</p> 
-        <ItemCount inventory={props.inventory}/>      
+        <br/>
+        <ItemCount inventory={100} drink={props}/>
+        <div className="verMas">
+            <div onClick={handleClick}>ver mas</div>
+        </div>        
     </div>
     )
 }

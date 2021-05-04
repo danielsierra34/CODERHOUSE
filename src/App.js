@@ -2,58 +2,29 @@ import './App.css';
 import {Header} from './components/Header/Header'
 import {NavBar} from './components/NavBar/NavBar'
 import {ItemListContainer} from './components/ItemListContainer/ItemListContainer'
+import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailContainer'
+import {Keypress} from './components/Keypress/Keypress'
+import { useState } from 'react'
 
-function App() {  
-  const items=[
-    {
-        item:"Lavadoras",
-        price:5000,
-        brand:"Samsung",
-        inventory:4
-    },{
-        item:"Lavadora",
-        price:5500,
-        brand:"LG",
-        inventory:3
-    },{
-        item:"Secadora",
-        price:6000,
-        brand:"Samsung",
-        inventory:1
-    },{
-        item:"Secadora",
-        price:6500,
-        brand:"LG",
-        inventory:2
-    },{
-        item:"Lava Platos",
-        price:7000,
-        brand:"Samsung",
-        inventory:2
-    },{
-        item:"Lava Platos",
-        price:7500,
-        brand:"LG",
-        inventory:3
-    },{
-        item:"Aire Acondicionado",
-        price:800,
-        brand:"Samsung",
-        inventory:4
-    },{
-        item:"Aire Acondicionado",
-        price:8500,
-        brand:"LG",
-        inventory:2
-    } 
-]
+function App() { 
+    
+    const [detalle,setDetalle] = useState([])
+    const [hidden,setHidden] = useState([])
+    const bajarDetalle = (p) =>{
+        console.log("bajo a App")
+        console.log(p)  
+        setDetalle(p)
+    }
+
   return (
     <div className="App">
       <Header/>
       <NavBar/>
       <div className="ItemList">
-      <ItemListContainer items={items}/>
+      <ItemListContainer bajarDetalle={bajarDetalle}/>
+      <ItemDetailContainer detalle={detalle}/>
       </div>
+      <Keypress/>
        
     </div>
   );

@@ -1,4 +1,7 @@
-.ItemList{
-    display:flex;
-    background-color: red;
+.ItemListContainer{
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #463E3E;
+    height: 400px;
 }

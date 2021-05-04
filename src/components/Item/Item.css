@@ -1,11 +1,21 @@
 .item{
-    width: 150px;
-    height: 150px;
+    min-width: 140px;
+    height: auto;
     display: inline-flexbox;
     position: relative;
     margin: 8px;
-    background-color: burlywood;
+    background-color:lightgray;
     padding: 7px;
+    font-size: 9px;
+}
+.item h3{
+    text-align: center;
+}
+.drinkImg{
+    width: 100%;
+}
+.drinkImg img{
+    width: 100%;
 }
 .item ul{
     margin: 0;
@@ -18,4 +28,13 @@
     right:0;
     color:grey;
     display: none;
+}
+.verMas{
+    text-align: center;
+    font-size: 13px;
+}
+.verMas a{
+    text-align: center;
+    font-size: 13px;
+    color:#463E3E
 }

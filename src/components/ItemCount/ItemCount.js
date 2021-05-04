@@ -18,18 +18,18 @@ export const ItemCount = (props) => {
     const addToCart =(e) =>{
         e.stopPropagation()
         if (quantity > 0) 
-        alert(`vas a comprar ${quantity} '${props.items}' de ${props.inventory} disponibles`)
+        alert(`se han agregado ${quantity} unidades de '${props.drink.drink}' a tu orden`)
         else alert(`debes seleccionar por lo menos 1 unidad`)
     }
 
-
-    console.log(quantity)
     return (    
         <div className="ItemCount">
-            <div className="botonDisminuir boton" onClick={disminuirCantidad}>-</div>
-            <input className="field" type="text" value={quantity}/>
-            <div className="botonIncrementar boton" onClick={incrementarCantidad}>+</div> 
-            <div className="addToCart" onClick={addToCart}>Agregar</div>           
+            <div className="quantities">
+                <div className="botonDisminuir boton" onClick={disminuirCantidad}>-</div>
+                <input className="field" type="text" value={quantity}/>
+                <div className="botonIncrementar boton" onClick={incrementarCantidad}>+</div> 
+            </div>            
+            <div className="addToCart" onClick={addToCart}>Comprar</div>           
         </div>
       )    
       
