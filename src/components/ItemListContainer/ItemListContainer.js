@@ -6,18 +6,23 @@ import {useParams} from 'react-router-dom'
 
 export const ItemListContainer = (props) => {   
     const {search} = useParams()
-    const [buscador,setBuscador]=useState([])
+    const [buscador,setBuscador]=useState(search)
+    const [prueba,setPrueba]=useState([])
     const [items,setItems]= useState([])
     const [filteredItems,setFilteredItems]=useState(items)
     const [textoBoton,setTextoBoton]=useState('Descargar Catálogo');
 
     useEffect(()=>{
-       setBuscador(search)      
+        setBuscador(search)         
     },[search])
 
     useEffect(()=>{
-        handleClick()
+        setPrueba(buscador)         
     },[buscador])
+
+    useEffect(()=>{
+        handleClick()  
+    },[prueba])
 
     /*useEffect(()=>{
         setBuscador(busc)
@@ -29,7 +34,7 @@ export const ItemListContainer = (props) => {
     
     const handleClick = async ()=>{
         setItems([])
-        let llamarCatalogo = async (nombre) => {
+        let llamarCatalogo = async (buscador) => {
                 const xx =await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${buscador}`)
                 const yy=xx.json()               
                 return yy
