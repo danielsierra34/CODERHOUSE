@@ -9,7 +9,7 @@ export const ItemList = (props) => {
         console.log(p)   
         props.bajarDetalle(p)
     }
-    
+     
     
     
     return (  

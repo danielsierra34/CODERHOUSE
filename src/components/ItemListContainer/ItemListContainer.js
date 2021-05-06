@@ -1,9 +1,12 @@
 import './ItemListContainer.css';
 import { ItemList } from '../ItemList/ItemList'
 import { useEffect,useState } from 'react'
+//import {useParams} from 'react-router'
+
 
 export const ItemListContainer = (props) => {   
-    
+
+    //const {busc} = useParams()
     const [buscador,setBuscador]=useState([])
     const [items,setItems]= useState([])
     const [filteredItems,setFilteredItems]=useState(items)
@@ -14,10 +17,14 @@ export const ItemListContainer = (props) => {
         props.bajarDetalle(p)
     }
 
+
+    useEffect(()=>{
+        handleClick()
+    },[buscador])
+
     /*useEffect(()=>{
-        const newFilteredItems=items
-        setFilteredItems(newFilteredItems)
-    },[buscador])*/
+        setBuscador(busc)
+    },[busc])*/
 
     /*useEffect(()=>{
         handleClick();
@@ -25,23 +32,28 @@ export const ItemListContainer = (props) => {
     
     const handleClick = async ()=>{
         setItems([])
-        setTextoBoton("Descargando...")
+        //setTextoBoton("Descargando...")
         let llamarCatalogo = async (nombre) => {
                 const xx =await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nombre}`)
                 const yy=xx.json()               
                 return yy
         } 
         const p= await llamarCatalogo(buscador) 
-        setItems(p.drinks) 
-        setTextoBoton("Actualizar") 
+        
+        setItems((p.drinks)?p.drinks:[]) 
+        //setTextoBoton("Actualizar") 
     }
     
     return ( 
-        <div className="ItemListContainer">
-            
-            <input type="text" placeholder="Buscar..." value={buscador} onChange={(e) => setBuscador(e.target.value)}/>
-            <input type="button" value={textoBoton} onClick={handleClick}/>
+        <div className="ItemListContainer">  
+
+           
+            <input type="text" className="formControl" placeholder="Buscar..." value={buscador} onChange={(e) => setBuscador(e.target.value)}/>
+            <div className="container">
             <ItemList items={items} buscador={buscador} bajarDetalle={bajarDetalle}/>
+            
+            </div>
+             
         </div>        
       )    
       

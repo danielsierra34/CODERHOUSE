@@ -1,6 +1,13 @@
 import './Item.css';
 import { ItemCount } from '../ItemCount/ItemCount'
 import { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
+
+
+
+
+
 export const Item = (props) => {
     
     const [idP,setIdP]=useState([])
@@ -36,7 +43,7 @@ export const Item = (props) => {
         <br/>
         <ItemCount inventory={100} drink={props}/>
         <div className="verMas">
-            <div onClick={handleClick}>ver mas</div>
+        <Link to={`/detail/:${props.drink}`}> Home</Link> 
         </div>        
     </div>
     )

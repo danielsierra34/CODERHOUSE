@@ -26,9 +26,9 @@ export const ItemDetail = (props) => {
               </td>
               <td>
 
-              <p className="category"><b>Categoria:</b>{props.detalle.strCategory}</p>
-          <p className="copa"><b>Copa:</b>{props.detalle.strGlass}</p>
-          <p className="tipo"><b>Tipo:</b>{props.detalle.strAlcoholic}</p>
+                <p className="category"><b>Categoria:</b>{props.detalle.strCategory}</p>
+                <p className="copa"><b>Copa:</b>{props.detalle.strGlass}</p>
+                <p className="tipo"><b>Tipo:</b>{props.detalle.strAlcoholic}</p>
               </td>
             </tr>
           </table>

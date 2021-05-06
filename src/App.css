@@ -3,4 +3,23 @@
   display: flex;
   list-style-type: none;
 }
+.App{
+  text-align: center;
 
+}
+
+  .formControl{
+    padding: 5px 10px;
+     font-size: 16px;
+     border-width: 1px;
+     border-color: #000000;
+     background-color: black;
+     color: grey;
+     border-style: hidden;
+     border-radius: 50px;
+     box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+     text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+.formControl:focus {
+  outline:none;
+}

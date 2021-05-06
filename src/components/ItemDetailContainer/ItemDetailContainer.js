@@ -8,7 +8,7 @@ export const ItemDetailContainer = (props) => {
     console.log(props.detalle)   
   },[props.detalle])
 
-
+ 
 
     return (    
       <div className="ItemDetailContainer">

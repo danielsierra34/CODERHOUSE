@@ -1,7 +1,8 @@
 .ItemDetailContainer{
     width: 70%;
+    margin: auto;
+    text-align: center  ;
     height: 400px;
-    background-color: #463E3E;
     padding: 10px;
-    margin: 10px;
+
 }

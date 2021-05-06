@@ -1,4 +1,5 @@
 import logo from '../../logo.svg'
+import {NavLink} from 'react-router-dom'
 import './NavBar.css';
 
 const nombreTienda="Tienda de Daniel"
@@ -9,16 +10,16 @@ export const NavBar=()=>{
         <nav className="navigation">
           <ul className="links">
             <li className="link">
-              <a href="">Televisores</a>
-              </li>
+              <NavLink exact to={`/`} activeClassName="seleccionado" className="normal"> Home</NavLink>
+            </li>
             <li className="link">
-              <a href="">Smartphones</a>
-              </li>
+              <NavLink to={`/products/`} activeClassName="seleccionado" className="normal">Products</NavLink>
+            </li>
             <li className="link">
-              <a href="">Tablets</a>
-              </li>
+              <NavLink to={`/detail/`} activeClassName="seleccionado" className="normal">Detail</NavLink>
+            </li>
             <li className="link">
-              <a href="">Agendas    </a>
+            <NavLink to={`/credits`} activeClassName="seleccionado" className="normal">Credits</NavLink>
               </li>
           </ul>
         </nav>

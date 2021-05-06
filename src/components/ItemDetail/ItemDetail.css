@@ -6,7 +6,8 @@
 }
 .drinkImgn{
     width: 100px;
-    border-radius: 100px;
+    height: 100px;
+    border-radius: 100px 100px;
     overflow: hidden;
     border:3px solid white
 }

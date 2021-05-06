@@ -1,7 +1,11 @@
-.ItemListContainer{
-    width: 30%;
-    padding: 10px;
-    margin: 10px;
-    background-color: #463E3E;
-    height: 400px;
+.ItemListContainer .container{
+    
+    width: 100%;
+    margin-top: 40px;
+    height: auto;
+    overflow-x:auto;
+}
+
+.bebida{
+    color:white
 }
