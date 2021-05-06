@@ -6,21 +6,10 @@ import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailCo
 import {Footer} from './components/Footer/Footer'
 import {Home} from './components/Home/Home'
 import {Credits} from './components/Credits/Credits'
-import {Keypress} from './components/Keypress/Keypress'
-import { useState } from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
 function App() { 
-
-    
-    const [detalle,setDetalle] = useState([])
-    const [hidden,setHidden] = useState([])
-    const bajarDetalle = (p) =>{
-        console.log("bajo a App")
-        console.log(p)  
-        setDetalle(p)
-    }
 
   return (      
     <div className="App">
@@ -30,11 +19,11 @@ function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/products">
-            <ItemListContainer bajarDetalle={bajarDetalle}/>
+          <Route path="/products/:search">
+            <ItemListContainer/>
           </Route>
-          <Route path="/detail/:drink">
-            <ItemDetailContainer detalle={detalle}/>  
+          <Route path="/detail/:id">
+            <ItemDetailContainer/>  
           </Route>
           <Route path="/credits">
             <Credits/> 
@@ -45,13 +34,4 @@ function App() {
     </div>
   );
 }
-
-
-/*<Header/>      
-      <div className="ItemList">
-      
-      
-      </div>
-      <Keypress/>*/
-
 export default App;

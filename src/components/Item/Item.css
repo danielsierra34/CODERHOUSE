@@ -1,12 +1,13 @@
 .item{
-    min-width: 140px;
-    height: auto;
-    display: inline-flexbox;
-    position: relative;
-    margin: 8px;
+    margin: auto;
+}
+.subItem{
     background-color:lightgray;
     padding: 7px;
-    font-size: 9px;
+    font-size: 12px;
+    min-width: 140px;
+    max-width: 140px;
+    margin: 10px;
 }
 .item h3{
     text-align: center;

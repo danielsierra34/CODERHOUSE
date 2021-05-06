@@ -13,13 +13,13 @@ export const NavBar=()=>{
               <NavLink exact to={`/`} activeClassName="seleccionado" className="normal"> Home</NavLink>
             </li>
             <li className="link">
-              <NavLink to={`/products/`} activeClassName="seleccionado" className="normal">Products</NavLink>
+              <NavLink to={`/products/ `} activeClassName="seleccionado" className="normal">Products</NavLink>
             </li>
             <li className="link">
               <NavLink to={`/detail/`} activeClassName="seleccionado" className="normal">Detail</NavLink>
             </li>
             <li className="link">
-            <NavLink to={`/credits`} activeClassName="seleccionado" className="normal">Credits</NavLink>
+            <NavLink to={`/credits/`} activeClassName="seleccionado" className="normal">Credits</NavLink>
               </li>
           </ul>
         </nav>

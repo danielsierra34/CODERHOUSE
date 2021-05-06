@@ -1,22 +1,19 @@
 import './ItemListContainer.css';
 import { ItemList } from '../ItemList/ItemList'
 import { useEffect,useState } from 'react'
-//import {useParams} from 'react-router'
+import {useParams} from 'react-router-dom'
 
 
 export const ItemListContainer = (props) => {   
-
-    //const {busc} = useParams()
+    const {search} = useParams()
     const [buscador,setBuscador]=useState([])
     const [items,setItems]= useState([])
     const [filteredItems,setFilteredItems]=useState(items)
     const [textoBoton,setTextoBoton]=useState('Descargar Catálogo');
-    const bajarDetalle = (p) =>{
-        console.log("bajo a ItemListContainer")
-        console.log(p)  
-        props.bajarDetalle(p)
-    }
 
+    useEffect(()=>{
+       setBuscador(search)      
+    },[search])
 
     useEffect(()=>{
         handleClick()
@@ -32,29 +29,22 @@ export const ItemListContainer = (props) => {
     
     const handleClick = async ()=>{
         setItems([])
-        //setTextoBoton("Descargando...")
         let llamarCatalogo = async (nombre) => {
-                const xx =await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nombre}`)
+                const xx =await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${buscador}`)
                 const yy=xx.json()               
                 return yy
         } 
-        const p= await llamarCatalogo(buscador) 
-        
+        const p= await llamarCatalogo(buscador)         
         setItems((p.drinks)?p.drinks:[]) 
-        //setTextoBoton("Actualizar") 
     }
     
     return ( 
+        
         <div className="ItemListContainer">  
-
-           
             <input type="text" className="formControl" placeholder="Buscar..." value={buscador} onChange={(e) => setBuscador(e.target.value)}/>
             <div className="container">
-            <ItemList items={items} buscador={buscador} bajarDetalle={bajarDetalle}/>
-            
-            </div>
-             
+            <ItemList items={items} buscador={buscador}/>            
+            </div>             
         </div>        
-      )    
-      
+      )          
 }
