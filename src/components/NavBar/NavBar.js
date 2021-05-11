@@ -21,6 +21,9 @@ export const NavBar=()=>{
             <li className="link">
             <NavLink to={`/credits/`} activeClassName="seleccionado" className="normal">Credits</NavLink>
               </li>
+              <li className="link">
+            <NavLink to={`/cart/`} activeClassName="seleccionado" className="normal">Credits</NavLink>
+              </li>
           </ul>
         </nav>
     )

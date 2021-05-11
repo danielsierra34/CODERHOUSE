@@ -1,10 +1,10 @@
 import './ItemCount.css';
 import { Item } from '../Item/Item'
 import { useState } from 'react'
+import {NavLink} from 'react-router-dom'
 export const ItemCount = (props) => {
     const [quantity, setQuantity]=useState(props.cantidad)
-    const [addToCartx,setAddToCartx]=("show")
-    const [goToCartx,setGoToCartx]=("hide")
+    const [xxx, setXxx]=useState(true)
     const incrementarCantidad = (e) => { 
         e.stopPropagation()
         if (quantity < 100) setQuantity(quantity + 1)
@@ -20,7 +20,7 @@ export const ItemCount = (props) => {
     const addToCart =(e) =>{
         e.stopPropagation()
         if (quantity > 0) {
-        //props.cantidad=quantity
+        setXxx(false)
         alert(`se han agregado ${quantity} unidades de producto a tu orden`)
         }
         else alert(`debes seleccionar por lo menos 1 unidad`)
@@ -34,16 +34,20 @@ export const ItemCount = (props) => {
         else alert(`debes seleccionar por lo menos 1 unidad`)
     }
     
-
     return (    
         <div className="ItemCount">
             <div className="quantities">
                 <div className="botonDisminuir boton" onClick={disminuirCantidad}>-</div>
                 <input className="field" type="text" value={quantity}/>
                 <div className="botonIncrementar boton" onClick={incrementarCantidad}>+</div> 
-            </div>            
-            <div className="addToCart" onClick={addToCart}>Comprar</div>
-            <div className="goToCart" onClick={goToCart}>Go to Cart</div>           
+            </div> 
+            {xxx ? (
+                <div className="addToCart" onClick={addToCart}>Comprar</div>
+            ) : (
+                <NavLink to={`/cart/`} className="gotoKart"> Go to Cart</NavLink>  
+            )}           
+            
+                      
         </div>
       )    
       
