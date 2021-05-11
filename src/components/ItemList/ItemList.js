@@ -4,13 +4,7 @@ import { useState } from 'react'
 
 export const ItemList = (props) => {
 
-    const bajarDetalle = (p) =>{
-        console.log("bajo a ItemList")
-        console.log(p)   
-        props.bajarDetalle(p)
-    }
      
-    
     
     return (  
         <div className="ItemList"> 
@@ -22,7 +16,6 @@ export const ItemList = (props) => {
                         category={xxx.strCategory}
                         glass={xxx.strGlass}
                         image={xxx.strDrinkThumb}
-                        bajarDetalle={bajarDetalle}
                     />        
                 ))
             }       

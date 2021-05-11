@@ -1,9 +1,16 @@
 import './ItemDetail.css';
 import { useEffect,useState } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
-export const ItemDetail = (props) => {
+export const ItemDetail = (props) => { 
 
   const [resultado,setResultado] = useState([])
+  const [cantidad,setCantidad] = useState(0)
+  useEffect(()=>{
+    console.log("cambio la cantidad " + cantidad)
+  },[cantidad])
+  
+ 
+  
     return (    
         <div className="ItemDetail {hidden}">
           <h2>{props.detalle.strDrink}</h2>
@@ -20,9 +27,8 @@ export const ItemDetail = (props) => {
           <br/>
           <div className="description">
           <p className="instructions"><b>Instrucciones:</b>{props.detalle.strInstructions}</p>
-          <p className="instructions">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <ItemCount />
+          <ItemCount cantidad={cantidad} />
         </div>
       )    
       
