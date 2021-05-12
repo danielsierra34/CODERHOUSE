@@ -3,16 +3,15 @@ import { useEffect,useState } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
 export const ItemDetail = (props) => { 
 
-  const [resultado,setResultado] = useState([])
-  const [cantidad,setCantidad] = useState(0)
-  useEffect(()=>{
-    console.log("cambio la cantidad " + cantidad)
-  },[cantidad])
-  
+   
+  const onAdd = (e) => {
+    alert(e)
+  }
+
  
   
     return (    
-        <div className="ItemDetail {hidden}">
+        <div className="ItemDetail">
           <h2>{props.detalle.strDrink}</h2>
           <hr/>
           <div className="drinkImgn">
@@ -28,7 +27,7 @@ export const ItemDetail = (props) => {
           <div className="description">
           <p className="instructions"><b>Instrucciones:</b>{props.detalle.strInstructions}</p>
           </div>
-          <ItemCount cantidad={cantidad} />
+          <ItemCount onAdd={onAdd}/>
         </div>
       )    
       
