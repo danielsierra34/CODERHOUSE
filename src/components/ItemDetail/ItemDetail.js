@@ -5,7 +5,7 @@ export const ItemDetail = (props) => {
 
    
   const onAdd = (e) => {
-    alert(e)
+    alert(`acabas de agregar ${e} unidades de este producto a tu carrito`)
   }
 
  

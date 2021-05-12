@@ -6,6 +6,7 @@ export const ItemCount = ({onAdd}) => {
 
     
     let [cantidad,setCantidad]= useState(0)
+    let [agregado,setAgregado]= useState(false)
 
     const incrementarCantidad = (e) => { 
         e.stopPropagation()
@@ -23,12 +24,15 @@ export const ItemCount = ({onAdd}) => {
         else alert(`no se permiten cantidades negativas`)
     }
 
-    useEffect((e)=>{
-        onAdd(cantidad) 
-    },[cantidad])
-
-
-
+    const handleOnAdd = (e)=>{
+        if(cantidad>0){
+            setAgregado(true)
+            onAdd(cantidad) 
+        }else{
+            alert("debes seleccionar por lo menos 1 unidad")
+        }
+        
+    }
 
      /*const goToCart =(e) =>{
         e.stopPropagation()
@@ -40,14 +44,22 @@ export const ItemCount = ({onAdd}) => {
     
     return (    
         <div className="ItemCount">
-            <div className="quantities">
-                <div className="botonDisminuir boton" onClick={disminuirCantidad}>-</div>
-                <input className="field" type="text" value={cantidad}/>
-                <div className="botonIncrementar boton" onClick={incrementarCantidad}>+</div> 
-            </div>
-            <div onClick={onAdd}>
-                add to Cart
-            </div>
+
+            {!agregado ? (
+                <div>
+                <div className="quantities">
+                    <div className="botonDisminuir boton1" onClick={disminuirCantidad}>-</div>
+                    <input className="field" type="text" value={cantidad}/>
+                    <div className="botonIncrementar boton1" onClick={incrementarCantidad}>+</div> 
+                </div>
+                <div onClick={handleOnAdd} className="boton2">
+                    Agregar al carrito
+                </div>
+                </div>
+            ) : (
+                <NavLink to={`/cart/`} className="boton2"> Go to Cart</NavLink>  
+            )}  
+            
         </div>
       )    
       

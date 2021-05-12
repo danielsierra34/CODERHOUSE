@@ -1,4 +1,4 @@
-.boton{
+.boton1{
     width: 20px;
     height: 20px;
     background-color: #463E3E;
@@ -8,6 +8,19 @@
     margin: 1px;
     font-size: 14px;
 }
+.boton2{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color:white;
+    text-align: center;
+    display: inline-block;
+    margin: 1px;
+    font-size: 14px;
+    width: 200px;
+    padding: 4px 8px;
+}
+
 .field{
     height: 20px;
     width:50px;
@@ -16,6 +29,7 @@
     padding: 0;
     margin: 0;
 }
+
 .ItemCount{ 
     margin:auto;
     text-align: center;
@@ -27,19 +41,4 @@
     background-color: #463E3E;
     color:white;
     font-size: 13px;
-}
-.quantities{
-    width: 100%; 
-    margin-bottom: 4px;
-}
-.hide{
-    display: none;
-}
-.show{
-    display: block;
-}
-.addButton, .gotoKart{
-    padding: 4px 8px;
-    background-color: #463E3E;
-    color:lightgray
 }
