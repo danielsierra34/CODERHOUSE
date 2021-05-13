@@ -1,15 +1,18 @@
 import './ItemDetail.css';
+import {useContext} from 'react'
+import {CartContext} from '../../context/CartContext'
 import { useEffect,useState } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
 export const ItemDetail = (props) => { 
 
+  const carrito = useContext(CartContext)
    
   const onAdd = (e) => {
     alert(`acabas de agregar ${e} unidades de este producto a tu carrito`)
   }
 
  
-  
+
     return (    
         <div className="ItemDetail">
           <h2>{props.detalle.strDrink}</h2>

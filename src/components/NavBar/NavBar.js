@@ -2,12 +2,10 @@ import logo from '../../logo.svg'
 import {NavLink} from 'react-router-dom'
 import './NavBar.css';
 
-const nombreTienda="Tienda de Daniel"
-  const handleLogo = () => alert(`Bienvenido a ${nombreTienda}`)
 
 export const NavBar=()=>{
     return(
-        <nav className="navigation">
+        <nav className="NavBar">
           <ul className="links">
             <li className="link">
               <NavLink exact to={`/`} activeClassName="seleccionado" className="normal"> Home</NavLink>
@@ -22,7 +20,7 @@ export const NavBar=()=>{
             <NavLink to={`/credits/`} activeClassName="seleccionado" className="normal">Credits</NavLink>
               </li>
               <li className="link">
-            <NavLink to={`/cart/`} activeClassName="seleccionado" className="normal">Credits</NavLink>
+            <NavLink to={`/cart/`} activeClassName="seleccionado" className="normal">Cart</NavLink>
               </li>
           </ul>
         </nav>

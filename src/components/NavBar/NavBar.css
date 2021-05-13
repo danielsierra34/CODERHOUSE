@@ -1,4 +1,6 @@
-
+.NavBar{
+  margin: auto;
+}
   
   .links{
     display: flex;
