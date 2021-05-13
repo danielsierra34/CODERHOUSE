@@ -16,6 +16,7 @@ export const ItemList = (props) => {
                         category={xxx.strCategory}
                         glass={xxx.strGlass}
                         image={xxx.strDrinkThumb}
+                        
                     />        
                 ))
             }       

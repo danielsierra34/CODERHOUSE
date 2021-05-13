@@ -1,16 +1,15 @@
 import './ItemDetail.css';
-import {useContext} from 'react'
-import {CartContext} from '../../context/CartContext'
-import { useEffect,useState } from 'react'
+import { useEffect,useState,useContext } from 'react'
 import {ItemCount} from '../ItemCount/ItemCount'
+import {CartContext} from '../../context/CartContext'
+import {NavLink} from 'react-router-dom'
 export const ItemDetail = (props) => { 
-
-  const carrito = useContext(CartContext)
    
-  const onAdd = (e) => {
-    alert(`acabas de agregar ${e} unidades de este producto a tu carrito`)
-  }
+  const contexto=useContext(CartContext)
 
+  const handleCartClick = (cantidad) =>{
+      contexto.addToCart(props.detalle,cantidad)
+  }
  
 
     return (    
@@ -28,9 +27,11 @@ export const ItemDetail = (props) => {
           
           <br/>
           <div className="description">
-          <p className="instructions"><b>Instrucciones:</b>{props.detalle.strInstructions}</p>
+            <p className="instructions"><b>Instrucciones:</b>{props.detalle.strInstructions}</p>
           </div>
-          <ItemCount onAdd={onAdd}/>
+          
+          <ItemCount onAdd={handleCartClick}/>
+          <NavLink to={`/products/w`}>Seguir comprando</NavLink> 
         </div>
       )    
       

@@ -1,6 +1,5 @@
 import './ItemDetailContainer.css';
 import {ItemDetail} from '../ItemDetail/ItemDetail'
-
 import { useEffect,useState } from 'react'
 import {useParams} from 'react-router-dom'
 
@@ -27,6 +26,7 @@ export const ItemDetailContainer = (props) => {
             return yy
         } 
         const p= await llamarDetalle() 
+        p.drinks[0].precio=Math.floor(Math.random() * 5000) + 3000;
         setDetalle(p.drinks[0])
     }        
 }
@@ -34,7 +34,7 @@ export const ItemDetailContainer = (props) => {
 
     return (    
       <div className="ItemDetailContainer">
-        <ItemDetail detalle={detalle}/>        
+        <ItemDetail detalle={detalle} />        
       </div>
     )    
       

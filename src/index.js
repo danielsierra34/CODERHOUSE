@@ -11,7 +11,7 @@ const productos=[]
 
 ReactDOM.render(
   <React.StrictMode> 
-    <CartProvider value={productos}>
+    <CartProvider>
       <App />
     </CartProvider>    
   </React.StrictMode>,
