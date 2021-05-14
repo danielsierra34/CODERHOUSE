@@ -20,9 +20,10 @@ export const ItemDetail = (props) => {
             <img src={props.detalle.strDrinkThumb}/>
           </div>
           <div className="variables">
-            <p className="category"><b>Categoria:</b>{props.detalle.strCategory}</p>
-            <p className="copa"><b>Copa:</b>{props.detalle.strGlass}</p>
-            <p className="tipo"><b>Tipo:</b>{props.detalle.strAlcoholic}</p>
+            <p className="category"><b>Categoria:  </b>{props.detalle.strCategory}</p>
+            <p className="copa"><b>Copa:  </b>{props.detalle.strGlass}</p>
+            <p className="tipo"><b>Tipo:  </b>{props.detalle.strAlcoholic}</p>
+            <p className="tipo"><b>Price:  </b>$ {props.detalle.precio}</p>
           </div>
           
           <br/>

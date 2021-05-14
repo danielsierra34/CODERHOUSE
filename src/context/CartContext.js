@@ -4,7 +4,9 @@ export const CartContext = createContext()
 export const CartProvider = (props) => {
     
     const [cart,setCart]=useState([])
-    const [quantity,setQuantity]=useState(0)
+    const [change,setChange]=useState([])
+    const [quantityCart,setQuantityCart]=useState(0)
+    const [total,setTotal]=useState(0)
     const [prueba,setPrueba]=useState({"nombre":"daniel","apellido":"sierra"})
     const handleCartClick = () =>{
         console.log("funciono")
@@ -15,27 +17,40 @@ export const CartProvider = (props) => {
         }else{
             setCart([...cart,{"id":item.idDrink, "name":item.strDrink, "img":item.strDrinkThumb, "price" : item.precio, "quantity": cantidad   }])
             alert("el producto se agrego a tu carrito")
-        }
-        
+        }        
     }
-
- 
-    
+      
     const removeFromCart = (itemId) => {
-        alert("remove from cart")
-        /*const newCart = cart.filter((item) => item.id !== itemId)
-        setCart(newCart)*/
+        const newCart = cart.filter((item) => item.id !== itemId)
+        setCart(newCart)
     }
 
+    
     useEffect(() =>{
-        setQuantity(cart.length)
-        console.log(cart)
-    },[cart])
+        setQuantityCart(cart.length)
+        setTotal(cart.reduce(( total, currentValue ) =>total + currentValue.price*currentValue.quantity,0))
+        setChange(0)
+    },[cart,change])
 
+    const increase = (itemId) => {
+        const newCart=cart
+        ++newCart[newCart.findIndex(x => x.id === itemId)].quantity
+        setCart(newCart)
+        setChange(1)
+    }
+
+    const decrease = (itemId) => {
+        if(cart[cart.findIndex(x => x.id === itemId)].quantity>1){
+            --cart[cart.findIndex(x => x.id === itemId)].quantity
+        }else{
+            removeFromCart(itemId)
+        }
+        setChange(1)
+    }
 
     
     return (
-        <CartContext.Provider value={{addToCart:addToCart }}>
+        <CartContext.Provider value={{addToCart:addToCart, cart:cart,removeFromCart:removeFromCart, quantityCart:quantityCart, total:total, decrease:decrease, increase:increase }}>
             {props.children}
         </CartContext.Provider>
     )

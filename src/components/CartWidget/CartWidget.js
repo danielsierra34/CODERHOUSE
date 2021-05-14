@@ -1,19 +1,20 @@
-import {useContext} from 'react'
+import {useContext,useState} from 'react'
 import shopping from '../../images/shopping.svg'
 import './CartWidget.css';
 import {CartContext} from '../../context/CartContext'
+import {NavLink} from 'react-router-dom'
 
-
-export const CartWidget=({quantity=1})=>{
-
+export const CartWidget=()=>{
+    const contexto=useContext(CartContext)
     
     
   
 
     return(
         <div className="CartWidget">
-            <img src={shopping} className="shopping" />
-            <span class="quantity" >{quantity}</span>
+            <NavLink to={`/cart/`}><img src={shopping} className="shopping" /></NavLink> 
+            
+            <span class="quantity" >{contexto.quantityCart}</span>
             <span></span>
         </div>
     )
